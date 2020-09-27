@@ -143,7 +143,6 @@ export default {
 			//打开弹框，数据回显
 			this.dialogChapterFormVisible = true;
 			this.getChapterInfo(chapterId);
-
 		},
 		//添加和修改章节表单确认按钮
 		saveOrUpdate(){
@@ -152,7 +151,7 @@ export default {
 			}else{
 				this.updateChapter()
 			}
-		
+
 
 		},
 		//添加课程
