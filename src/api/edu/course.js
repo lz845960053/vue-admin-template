@@ -26,7 +26,7 @@ export default{
 	updateCourseInfoById(courseInfo){
 		return request({
 			url: `/eduservice/course/updateCourseInfo`,
-			method: 'post',
+			method: 'put',
 			data:courseInfo,
 		})
 

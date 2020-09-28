@@ -27,10 +27,17 @@ export default{
 	updateChapter(chapter){
 		return request({
 			url: `/eduservice/chapter/updateChapter`,
-			method: 'post',
+			method: 'put',
 			data:chapter
 		})
-	}
+	},
+  //根据章节Id删除章节
+  deleteChapter(chapterId){
+    return request({
+      url: `/eduservice/chapter/${chapterId}`,
+      method: 'delete'
+    })
+  }
 
 
 }

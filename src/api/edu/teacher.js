@@ -35,7 +35,7 @@ export default{
 	updateTeacher(teacher){
 		return request({
 			url:`/eduservice/teacher/updateTeacher`,
-			method:'post',
+			method:'put',
 			data:teacher,
 		})
 	}
