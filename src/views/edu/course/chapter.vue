@@ -45,7 +45,25 @@
       </el-radio-group>
     </el-form-item>
     <el-form-item label="上传视频">
-      <!-- TODO -->
+      <el-upload
+        :on-success="handleVodUploadSuccess"
+        :on-remove="handleVodRemove"
+        :before-remove="beforeVodRemove"
+        :on-exceed="handleUploadExceed"
+        :file-list="fileList"
+        :action="BASE_API+'/eduvod/video/uploadAlyiVideo'"
+        :limit="1"
+        class="upload-demo">
+        <el-button size="small" type="primary">上传视频</el-button>
+        <el-tooltip placement="right-end">
+          <div slot="content">最大支持1G，<br>
+            支持3GP、ASF、AVI、DAT、DV、FLV、F4V、<br>
+            GIF、M2T、M4V、MJ2、MJPEG、MKV、MOV、MP4、<br>
+            MPE、MPG、MPEG、MTS、OGG、QT、RM、RMVB、<br>
+            SWF、TS、VOB、WMV、WEBM 等视频格式上传</div>
+          <i class="el-icon-question"/>
+        </el-tooltip>
+      </el-upload>
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
@@ -105,6 +123,8 @@ export default {
 			dialogVideoFormVisible:false,
 			//控制添加小节确认按钮
 			saveVideoBtnDisabled:false,
+      fileList: [],//上传文件列表
+      BASE_API: process.env.BASE_API, // 接口API地址
 			courseId:'',
 			//章节小节列表
 			chapterVideoList:[],
@@ -133,6 +153,32 @@ export default {
   },
 
   methods: {
+    //############################上传视频###########################################
+    //成功
+    handleVodUploadSuccess(response, file, fileList){
+        this.video.videoSourceId = response.data.videoId;
+    },
+    //移除
+    handleVodRemove(file, fileList){
+      let videoId = this.video.videoSourceId
+      debugger
+      video.removeById(videoId)
+        .then(response=>{
+          this.$message({
+            type:'success',
+            message:'视频删除成功'
+          })
+        })
+
+    },
+    //移除之前
+    beforeVodRemove(file, fileList){
+      return this.$confirm(`确定移除 ${file.name}？`)
+    },
+    //文件超出个数限制时的钩子
+    handleUploadExceed(){
+
+    },
 		//##############################小节相关课程#########################################
 		saveOrUpdateVideo(){
 		  if(!this.video.id){

@@ -29,5 +29,12 @@ export default{
       method: 'put',
       data:video
     })
+  },
+  //删除阿里云视频
+  removeById(videoId){
+    return request({
+      url: `/eduvod/video/${videoId}`,
+      method: 'delete'
+    })
   }
 }
