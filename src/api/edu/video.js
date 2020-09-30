@@ -33,7 +33,7 @@ export default{
   //删除阿里云视频
   removeById(videoId){
     return request({
-      url: `/eduvod/video/${videoId}`,
+      url: `/eduvod/video/removeVideo/${videoId}`,
       method: 'delete'
     })
   }
