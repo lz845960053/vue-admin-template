@@ -52,12 +52,12 @@ export const constantRouterMap = [
       },
       {
         path: 'save',
-        name: '添加讲师',  
+        name: '添加讲师',
         component: () => import('@/views/edu/teacher/save'),
         meta: { title: '添加讲师', icon: 'tree' }
       },
       {
-        path: 'edit/:id',   
+        path: 'edit/:id',
         name: 'EduTeacherEdit',
         component: () => import('@/views/edu/teacher/save'),
         meta: { title: '编辑讲师', noCache: true },
@@ -131,14 +131,14 @@ export const constantRouterMap = [
   ]
 },
   {
-    path: '/form',
+    path: '/websocket',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        name: 'websocket',
+        component: () => import('@/views/websocket/index'),
+        meta: { title: '聊天室', icon: 'form' }
       }
     ]
   },

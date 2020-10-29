@@ -75,7 +75,7 @@
   </div>
 </template>
 
-<script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8">
 import teacher from "@/api/edu/teacher";
 
 export default {
